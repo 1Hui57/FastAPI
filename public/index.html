@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/home.css" />
+  </head>
+  <body>
+    <div class="top">歡迎光臨，請輸入帳號密碼</div>
+    <div>
+      <div>登入系統</div>
+    </div>
+    <a href="https://www.google.com/">Google</a>
+    <!-- 如果沒有設定，預設的連線方法為GET -->
+    <h2>以下使用Fetch測試不同的連線方法</h2>
+    <!-- <a href="/test">測試 /test 網址</a> -->
+    <button onclick="connectGET();">GET 連線</button>
+    <button onclick="connectPOST();">POST 連線</button>
+    <script>
+      async function connectGET() {
+        let response = await fetch("/test", {
+          method: "GET",
+        });
+        let data = await response.json();
+        console.log(data);
+      }
+
+      async function connectPOST() {
+        let response = await fetch("/add", {
+          method: "POST",
+          body:JSON.stringify({"n1":5,"n2":3})
+        });
+        let data = await response.json();
+        console.log(data);
+      }
+
+
+
+    </script>
+    <h2>以下提供某個整數平方的功能</h2>
+    <form action="/multiply">
+      請輸入整數<input type="text" name="n1" /><br />
+      請輸入整數<input type="text" name="n2" /><br />
+      <button>計算</button>
+    </form>
+    <h2>以下提供某個整數平方的功能</h2>
+    <form action="/square">
+      請輸入整數<input type="text" name="number" /><br />
+      <button>計算</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+body{
+    margin: 0;
+}
+
+.top{
+    background-color: rgba(16, 40, 117, 0.684);
+    height: 50px;
+    font-size: 20px;
+}
